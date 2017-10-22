@@ -2,10 +2,11 @@
 \.idea/
 client/node_modules/
 server/node_modules/
-client/package-lock\.json
 
-server/package-lock\.json
+simple-peer/node_modules/
+simple-peer/package-lock\.json
+dist/SimplePeer-bundle\.js
 
-dist/client-bundle\.js
-
-dist/server-bundle\.js
+webrtc/node_modules/
+webrtc/package-lock\.json
+dist/webrtc-bundle\.js

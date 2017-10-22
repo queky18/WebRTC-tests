@@ -4,9 +4,9 @@
   "description": "Node of WebDollar",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -r fs:browserify-fs src/server.js -o src/../../dist/server-bundle.js -t [ babelify --presets [ es2017 ] ]",
-    "transpile": "babel --presets es2017 src -d dist && browserify dist/index.js > dist_bundle/bundle.js",
-    "test": "npm run build && node src/../../dist/server-bundle.js"
+    "build": "browserify -r fs:browserify-fs src/webrtc.js -o src/../../dist/webrtc-bundle.js -t [ babelify --presets [ es2017 ] ]",
+    "transpile": "babel --presets es2017 src -d dist && browserify src/../../dist/index.js > dist_bundle/bundle.js",
+    "test": "npm run build && node src/../../dist/webrtc-bundle.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,8 @@
     "bufferutil": "^3.0.2",
     "fs": "0.0.1-security",
     "ipaddr.js": "^1.5.4",
-    "utf-8-validate": "^3.0.3"
+    "utf-8-validate": "^3.0.3",
+    "wrtc": "0.0.62"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
