@@ -1,0 +1,41 @@
+{
+  "name": "node-webdollar",
+  "version": "0.0.1",
+  "description": "Node of WebDollar",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -r fs:browserify-fs src/client.js -o src/../../dist/client-bundle.js -t [ babelify --presets [ es2017 ] ]",
+    "transpile": "babel --presets es2017 src -d dist && browserify src/../../dist/index.js > dist_bundle/bundle.js",
+    "test": "npm run build && node src/../../dist/client-bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebDollar/Node-WebDollar.git"
+  },
+  "keywords": [
+    "Node",
+    "CryptoCurrency",
+    "sockets"
+  ],
+  "author": "WebDollar - Alexandru Ionut Budisteanu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebDollar/Node-WebDollar/issues"
+  },
+  "homepage": "https://github.com/WebDollar/Node-WebDollar#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "browserify": "^14.5.0",
+    "browserify-fs": "^1.0.0",
+    "bufferutil": "^3.0.2",
+    "fs": "0.0.1-security",
+    "ipaddr.js": "^1.5.4",
+    "utf-8-validate": "^3.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babelify": "^7.3.0"
+  }
+}

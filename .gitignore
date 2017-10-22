@@ -1,0 +1,11 @@
+
+\.idea/
+client/node_modules/
+server/node_modules/
+client/package-lock\.json
+
+server/package-lock\.json
+
+dist/client-bundle\.js
+
+dist/server-bundle\.js
