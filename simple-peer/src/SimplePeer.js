@@ -5,16 +5,17 @@ console.log("Server Hello World");
 
 if (typeof window === 'undefined') window = global;
 
-if (typeof location === 'undefined') location = global.location||{}
+if (typeof location === 'undefined') location = global.location||{};
 
 var wrtc = require('wrtc');
 
-console.log("inititator",location.hash , (location.hash||'#1') === '#1');
+console.log("inititator",location.hash , (location.hash||'') === '#1');
 
 var Peer = require('simple-peer')
+
 var p = new Peer(
     {
-        initiator: (location.hash||'#1') === '#1',
+        initiator: (location.hash||'') === '#1',
         trickle: false,
         wrtc: wrtc,
     });
@@ -22,18 +23,27 @@ var p = new Peer(
 p.on('error', function (err) { console.log('error', err) })
 
 p.on('signal', function (data) {
-    console.log('SIGNAL', JSON.stringify(data))
+    console.log('SIGNAL', JSON.stringify(data));
     document.querySelector('#outgoing').textContent = JSON.stringify(data)
 })
 
 document.querySelector('form').addEventListener('submit', function (ev) {
-    ev.preventDefault()
+    ev.preventDefault();
     p.signal(JSON.parse(document.querySelector('#incoming').value))
 })
 
+let index = Math.floor(Math.random()*100);
+
 p.on('connect', function () {
     console.log('CONNECT')
-    p.send('whatever' + Math.random())
+
+    setInterval(function() {
+        if ((typeof p !== 'undefined')&& ( p !== null)) {
+            console.log(p);
+            p.send('whatever' + index + " ___ " + Math.random())
+        }
+    }, 500);
+
 })
 
 p.on('data', function (data) {
