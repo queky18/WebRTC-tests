@@ -3,16 +3,21 @@ console.log("Server Hello World");
 //TUTORIAL BASED ON
 // https://github.com/feross/simple-peer
 
-if (typeof window === 'undefined'){
-    window = global;
-}
+if (typeof window === 'undefined') window = global;
 
-if (typeof location === 'undefined') {
-    location = global.location||{}
-}
+if (typeof location === 'undefined') location = global.location||{}
+
+var wrtc = require('wrtc');
+
+console.log("inititator",location.hash , (location.hash||'#1') === '#1');
 
 var Peer = require('simple-peer')
-var p = new Peer({ initiator: (location.hash||'#1') === '#1', trickle: false })
+var p = new Peer(
+    {
+        initiator: (location.hash||'#1') === '#1',
+        trickle: false,
+        wrtc: wrtc,
+    });
 
 p.on('error', function (err) { console.log('error', err) })
 

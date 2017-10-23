@@ -31,7 +31,8 @@
     "fs": "0.0.1-security",
     "ipaddr.js": "^1.5.4",
     "simple-peer": "^8.1.1",
-    "utf-8-validate": "^3.0.3"
+    "utf-8-validate": "^3.0.3",
+    "wrtc": "0.0.62"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
