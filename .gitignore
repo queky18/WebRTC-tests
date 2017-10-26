@@ -10,3 +10,5 @@ dist/SimplePeer-bundle\.js
 webrtc/node_modules/
 webrtc/package-lock\.json
 dist/webrtc-bundle\.js
+
+sockets-test/node_modules/

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "browserify -r fs:browserify-fs src/webrtc.js -o src/../../dist/webrtc-bundle.js -t [ babelify --presets [ es2017 ] ]",
-    "transpile": "babel --presets es2017 src -d dist && browserify src/../../dist/index.js > dist_bundle/bundle.js",
-    "test": "npm run build && node src/../../dist/webrtc-bundle.js"
+    "transpile": "babel --presets es2017 src/webrtc.js -d dist && browserify dist/src/webrtc.js > src/../../dist/webrtc-bundle.js",
+    "test": "npm run transpile && node dist/src/webrtc.js"
   },
   "repository": {
     "type": "git",

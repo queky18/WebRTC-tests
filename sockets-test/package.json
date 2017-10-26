@@ -4,9 +4,7 @@
   "description": "Node of WebDollar",
   "main": "index.js",
   "scripts": {
-    "build": "browserify src/SimplePeer.js -o src/../../dist/SimplePeer-bundle.js -t [ babelify --presets [ es2017 ] ]",
-    "transpile": "babel --presets es2017 src/SimplePeer.js -d dist && browserify dist/src/SimplePeer.js > src/../../dist/SimplePeer-bundle.js",
-    "test": "npm run transpile && node dist/src/SimplePeer.js"
+    "test": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +28,8 @@
     "bufferutil": "^3.0.2",
     "fs": "0.0.1-security",
     "ipaddr.js": "^1.5.4",
-    "simple-peer": "^8.1.1",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4",
     "utf-8-validate": "^3.0.3",
     "wrtc": "0.0.62"
   },
