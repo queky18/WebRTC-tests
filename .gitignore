@@ -11,4 +11,9 @@ webrtc/node_modules/
 webrtc/package-lock\.json
 dist/webrtc-bundle\.js
 
+easyRTC/node_modules/
+easyRTC/package-lock\.json
+dist/EasyRTC-bundle\.js
+
 sockets-test/node_modules/
+
