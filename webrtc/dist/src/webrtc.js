@@ -22,7 +22,17 @@ var dataConstraint;
 
 function createConnection() {
 
-    var servers = null;
+    var config = {
+        iceServers: [{
+            urls: "stun:numb.viagenie.ca",
+            username: "pasaseh@ether123.net",
+            credential: "12345678"
+        }, {
+            urls: "turn:numb.viagenie.ca",
+            username: "pasaseh@ether123.net",
+            credential: "12345678"
+        }] };
+
     pcConstraint = null;
     dataConstraint = null;
     console.log('Using SCTP based data channels');
@@ -34,7 +44,7 @@ function createConnection() {
     // from the browser console.
 
 
-    localConnection = localConnection = new RTCPeerConnection(servers, pcConstraint);
+    localConnection = localConnection = new RTCPeerConnection(config, pcConstraint);
 
     console.log('Created local peer connection object localConnection');
 
@@ -50,7 +60,7 @@ function createConnection() {
 
     // Add remoteConnection to global scope to make it visible
     // from the browser console.
-    remoteConnection = remoteConnection = new RTCPeerConnection(servers, pcConstraint);
+    remoteConnection = remoteConnection = new RTCPeerConnection(config, pcConstraint);
 
     console.log('Created remote peer connection object remoteConnection');
 
@@ -97,6 +107,7 @@ function gotDescription1(desc) {
 function gotDescription2(desc) {
     remoteConnection.setLocalDescription(desc);
     console.log('Answer from remoteConnection \n' + desc.sdp);
+    console.log('Answer from remoteConnection original \n' + desc);
     localConnection.setRemoteDescription(desc);
 }
 

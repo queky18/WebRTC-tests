@@ -7,7 +7,12 @@ function connect() {
 
     console.log('connect started');
 
+
     console.log(easyrtc);
+    easyrtc = new easyrtc;   //https://easyrtc.com/docs/client-api/Easyrtc.php
+    console.log(easyrtc);
+
+    easyrtc.setSocketUrl("https://demo.easyrtc.com/");
 
     easyrtc.enableDebug(false);
     easyrtc.enableDataChannels(true);
@@ -106,7 +111,8 @@ function updateButtonState(otherEasyrtcid) {
 
 function startCall(otherEasyrtcid) {
 
-    if (easyrtc.getConnectStatus(otherEasyrtcid) === easyrtc.NOT_CONNECTED) {
+    //if (easyrtc.getConnectStatus(otherEasyrtcid) === easyrtc.NOT_CONNECTED) {
+    if (1 === 1) {
         try {
             easyrtc.call(otherEasyrtcid,
                 function(caller, media) { // success callback

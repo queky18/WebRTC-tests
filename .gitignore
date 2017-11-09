@@ -15,5 +15,10 @@ easyRTC/node_modules/
 easyRTC/package-lock\.json
 dist/EasyRTC-bundle\.js
 
+webrtc-scaledrone/node_modules/
+webrtc-scaledrone/package-lock\.json
+dist/webrtc-scaledrone-bundle\.js
+
+
 sockets-test/node_modules/
 

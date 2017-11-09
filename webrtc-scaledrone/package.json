@@ -4,9 +4,9 @@
   "description": "Node of WebDollar",
   "main": "index.js",
   "scripts": {
-    "build": "browserify src/main.js -o src/../../dist/EasyRTC-bundle.js -t [ babelify --presets [ es2017 ] ]",
-    "transpile": "babel --presets es2017 src/EasyRTC.js -d dist && browserify dist/src/EasyRTC.js > src/../../dist/EasyRTC-bundle.js",
-    "test": "npm run transpile && node dist/src/EasyRTC.js"
+    "build": "browserify -r fs:browserify-fs src/main.js -o src/../../dist/webrtc-scaledrone-bundle.js -t [ babelify --presets [ es2017 ] ]",
+    "transpile": "babel --presets es2017 src/main.js -d dist && browserify dist/src/main.js > src/../../dist/webrtc-scaledrone-bundle.js",
+    "test": "npm run transpile && node dist/src/main.js"
   },
   "repository": {
     "type": "git",
@@ -24,17 +24,12 @@
   },
   "homepage": "https://github.com/WebDollar/Node-WebDollar#readme",
   "dependencies": {
-    "async": "^2.6.0",
     "axios": "^0.16.2",
     "browserify": "^14.5.0",
     "browserify-fs": "^1.0.0",
     "bufferutil": "^3.0.2",
-    "colors": "^1.1.2",
-    "easyrtc": "^1.1.0",
     "fs": "0.0.1-security",
     "ipaddr.js": "^1.5.4",
-    "simple-peer": "^8.1.1",
-    "underscore": "^1.8.3",
     "utf-8-validate": "^3.0.3",
     "wrtc": "0.0.62"
   },

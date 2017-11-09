@@ -4,6 +4,10 @@ if (typeof window === 'undefined'){
     window = global;
 }
 
+if (typeof location === 'undefined') location = global.location||{};
+
+var initiator = (location.hash || '') === '#1';
+
 var wrtc = require("wrtc");
 RTCPeerConnection = wrtc.RTCPeerConnection;
 RTCSessionDescription = wrtc.RTCSessionDescription;
@@ -20,11 +24,8 @@ var receiveChannel;
 var pcConstraint;
 var dataConstraint;
 
-
-function createConnection() {
-
-    var config = {
-        iceServers:[
+var config = {
+    iceServers:[
         {
             urls: "stun:numb.viagenie.ca",
             username: "pasaseh@ether123.net",
@@ -35,7 +36,12 @@ function createConnection() {
             username: "pasaseh@ether123.net",
             credential: "12345678"
         }
-    ]};
+    ]
+};
+
+var initiator = (location.hash || '') === '#1';
+
+function createConnection() {
 
     pcConstraint = null;
     dataConstraint = null;
@@ -50,6 +56,7 @@ function createConnection() {
 
     localConnection = localConnection =  new RTCPeerConnection(config, pcConstraint);
 
+    //localConnection.setConfiguration(servers);
 
     console.log('Created local peer connection object localConnection');
 
@@ -65,14 +72,7 @@ function createConnection() {
 
     // Add remoteConnection to global scope to make it visible
     // from the browser console.
-    remoteConnection = remoteConnection = new RTCPeerConnection(config, pcConstraint);
 
-
-    console.log('Created remote peer connection object remoteConnection');
-
-    remoteConnection.onicecandidate = function(e) {
-        onIceCandidate(remoteConnection, e);
-    };
     remoteConnection.ondatachannel = receiveChannelCallback;
 
     localConnection.createOffer().then(
@@ -83,6 +83,8 @@ function createConnection() {
 
     console.log("ENABLED");
 }
+
+
 
 function onCreateSessionDescriptionError(error) {
     console.log('Failed to create session description: ' + error.toString());
@@ -120,7 +122,6 @@ function gotDescription1(desc) {
 
 function gotDescription2(desc) {
     remoteConnection.setLocalDescription(desc);
-    console.log('Answer from remoteConnection original \n' + desc.toString());
     console.log('Answer from remoteConnection \n' + desc.sdp);
     localConnection.setRemoteDescription(desc);
 }

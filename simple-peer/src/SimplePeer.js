@@ -9,6 +9,9 @@ if (typeof location === 'undefined') location = global.location||{};
 
 var Peer = require('simple-peer');
 
+
+var initiator = (location.hash || '') === '#1';
+
 params = {
     initiator: initiator,
     trickle: false,
