@@ -30,35 +30,10 @@ const configuration = {
         {
             urls: 'stun:stun.l.google.com:19302',
         },
-        {
-            urls: 'stun:stun.sipgate.net'
-        },
-        {
-            urls: 'stun:217.10.68.152'
-        },
-        {
-            urls: 'stun:stun.sipgate.net:10000'
-        },
-        {
-            urls: 'stun:217.10.68.152:10000'
-        },
-        {
-            urls: 'turn:192.155.84.88'
-        },
-        {
-            urls: 'turn:192.155.84.88?transport=tcp'
-        },
-        {
-            urls: 'turn:192.155.86.24:443'
-        },
-        {
-            urls: 'turn:192.155.86.24:443?transport=tcp'
-        },
-        {
-            urls: "stun:numb.viagenie.ca",
-            username: "pasaseh@ether123.net",
-            credential: "12345678"
-        },
+        {urls: "turn:192.155.84.88", "username": "easyRTC", "credential": "easyRTC@pass"},
+        {urls: "turn:192.155.84.88?transport=tcp", "username": "easyRTC", "credential": "easyRTC@pass"},
+        {urls: "turn:192.155.86.24:443", "credential": "easyRTC@pass", "username": "easyRTC"},
+        {urls: "turn:192.155.86.24:443?transport=tcp", "credential": "easyRTC@pass", "username": "easyRTC"},
         {
             urls: "turn:numb.viagenie.ca",
             username: "pasaseh@ether123.net",
