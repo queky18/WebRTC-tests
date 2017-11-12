@@ -85,20 +85,21 @@ function startWebRTC(isOfferer) {
     console.log('Starting WebRTC in as', isOfferer ? 'offerer' : 'waiter');
     pc = new RTCPeerConnection(configuration);
 
+    // 'onicecandidate' notifies us whenever an ICE agent needs to deliver a
+    // message to the other peer through the signaling server
+    pc.onicecandidate = event => {
+        if (event.candidate) {
+            console.log("onicecandidate",event.candidate);
+            //original
+            sendSignalingMessage({'candidate': event.candidate});
+
+        }
+    };
+
+
     if (isOfferer) {
 
 
-        // 'onicecandidate' notifies us whenever an ICE agent needs to deliver a
-        // message to the other peer through the signaling server
-        pc.onicecandidate = event => {
-            if (event.candidate) {
-                console.log("onicecandidate",event.candidate);
-                //original
-                sendSignalingMessage({'candidate': event.candidate});
-
-                //pc.addIceCandidate(new RTCIceCandidate(event.candidate));
-            }
-        };
 
         console.log("offer (signal emitter)");
 
