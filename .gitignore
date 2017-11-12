@@ -22,3 +22,7 @@ dist/webrtc-scaledrone-bundle\.js
 
 sockets-test/node_modules/
 
+
+dist/webrtc-scaledrone-bundle\.ts
+
+webrtc-scaledrone/dist/src/main\.js

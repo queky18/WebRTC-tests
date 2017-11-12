@@ -4,8 +4,8 @@
   "description": "Node of WebDollar",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -r fs:browserify-fs src/main.js -o src/../../dist/webrtc-scaledrone-bundle.js -t [ babelify --presets [ es2017 ] ]",
-    "transpile": "babel --presets es2017 src/main.js -d dist && browserify dist/src/main.js > src/../../dist/webrtc-scaledrone-bundle.js",
+    "build": "browserify -r fs:browserify-fs src/main.ts -o src/../../dist/webrtc-scaledrone-bundle.ts -t [ babelify --presets [ es2017 ] ]",
+    "transpile": "babel --presets es2017 src/main.ts -d dist && browserify dist/src/main.js > src/../../dist/webrtc-scaledrone-bundle.js",
     "test": "npm run transpile && node dist/src/main.js"
   },
   "repository": {
